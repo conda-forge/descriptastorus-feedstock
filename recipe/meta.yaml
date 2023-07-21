@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/descriptastorus-{{ version }}.tar.gz
   sha256: 3449020050f81e8a9ba999daec047da0e143dd8e0609eff6eacd06692a40f6c7
+  patches:
+    - spicy.patch
 
 build:
   entry_points:
