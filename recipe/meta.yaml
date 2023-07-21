@@ -15,7 +15,7 @@ build:
     - storus-validate = descriptastorus.cli.validate:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -30,6 +30,9 @@ requirements:
 test:
   imports:
     - descriptastorus
+  commands:
+    - storus --help
+    - storus-validate --help
 
 about:
   home: https://github.com/bp-kelley/descriptastorus
