@@ -1,0 +1,22 @@
+From 6cc998b0472342083a12baddfd477e123c42e381 Mon Sep 17 00:00:00 2001
+From: Jan Janssen <jan-janssen@users.noreply.github.com>
+Date: Fri, 21 Jul 2023 09:12:19 -0600
+Subject: [PATCH] spicy 1.0.0 fix
+
+---
+ descriptastorus/descriptors/rdNormalizedDescriptors.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/descriptastorus/descriptors/rdNormalizedDescriptors.py b/descriptastorus/descriptors/rdNormalizedDescriptors.py
+index f4a78a3..eaefcc3 100644
+--- a/descriptastorus/descriptors/rdNormalizedDescriptors.py
++++ b/descriptastorus/descriptors/rdNormalizedDescriptors.py
+@@ -32,7 +32,7 @@
+ from . import dists
+ from . import hists
+ from collections import namedtuple
+-import scipy.stats as st
++from scipy import stats as st
+ import numpy as np
+ import logging
+ from bisect import bisect
