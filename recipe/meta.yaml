@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/descriptastorus-{{ version }}.tar.gz
   sha256: 350dd95b3a6fcfcbc81af52b1b6a1b36678d04903744f7b422a254198d8c2f37
-  patches:
-    - spicy.patch
 
 build:
   entry_points:
@@ -17,7 +15,7 @@ build:
     - storus-validate = descriptastorus.cli.validate:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
