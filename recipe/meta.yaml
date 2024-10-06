@@ -1,5 +1,5 @@
 {% set name = "descriptastorus" %}
-{% set version = "2.7.0" %}
+{% set version = "2.7.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/descriptastorus-{{ version }}.tar.gz
-  sha256: 8ba08d4f6d98033176974016078218b31dad9670558cae2cfa1c330852379820
+  sha256: a48f8c980e7489541e4811f592d32333bed99584093bfdeaf04d418f1894869f
 
 build:
   entry_points:
