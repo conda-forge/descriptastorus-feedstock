@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/descriptastorus-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/descriptastorus-{{ version }}.tar.gz
   sha256: a48f8c980e7489541e4811f592d32333bed99584093bfdeaf04d418f1894869f
 
 build:
@@ -15,20 +15,23 @@ build:
     - storus-validate = descriptastorus.cli.validate:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - pandas-flavor
     - scipy
     - rdkit
     - tqdm
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - descriptastorus
   commands:
