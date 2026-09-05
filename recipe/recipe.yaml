@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  name: descriptastorus
+  version: "2.7.0.4"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/descriptastorus-${{ version }}.tar.gz
+  sha256: a48f8c980e7489541e4811f592d32333bed99584093bfdeaf04d418f1894869f
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - storus = descriptastorus.cli.storus:main
+      - storus-validate = descriptastorus.cli.validate:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - pandas-flavor
+    - scipy
+    - rdkit
+    - tqdm
+
+tests:
+  - python:
+      imports:
+        - descriptastorus
+      pip_check: false
+      python_version:
+        - ${{ python_min }}
+        - "*"
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - storus --help
+      - storus-validate --help
+
+about:
+  summary: Descriptor storage and molecular file indexing
+  license: BSD-3-Clause
+  license_file: LICENSE
+  homepage: https://github.com/bp-kelley/descriptastorus
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
